@@ -67,5 +67,27 @@ hoge
   - "GC Handbook"
   - Available JDK8, 10, 11(Developper build)
 
-
+- Nestmate and
+  - NestMate
+    - new Inner().a if a is private
+      - access$000
+      	- getfield
+    - JVM SPec
+      - Accessible by same class
+    - JLS
+      - Accessible by same OR NESTED class
+    - This missmatch breaks reflection
+      - Inner's private hello can be accessed from outer, but reflection is not
+    - Nestmates Attribute
+      - NestMembers attribute and  NestHost attribute
+      	- outer class has NestMembers attribute
+  - Condy
+    - constant dynamic
+    - indy comes for dynamic languages
+    - indy to return constants is overhead
+      - BootstrapMethod and ConstantCallSite, MethodHandle returns constat
+    - condy
+      - No CallSite or target MH
+    - Usecases
+      - Con-capturing lambda
   
