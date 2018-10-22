@@ -61,3 +61,11 @@ hoge
        - Move to git
        - /Project-Skara/jdk/
      - Loom, Panama, Value types, Valhalla, Metropolise      
+
+- Schenandoh
+  - Do concurrent compaction
+  - "GC Handbook"
+  - Available JDK8, 10, 11(Developper build)
+
+
+  
