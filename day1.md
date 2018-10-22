@@ -50,6 +50,14 @@ hoge
    - Accelarating IO
    - JDK 12
      - 210 improvement for Hotspot
-     
-
-       
+   - Future feature
+     - Vector API
+     - Limit Speculative exec.
+     - RDMA network sockets
+     - JVM Constant API
+     - Intrinsics for LDC and INDY
+     - etc
+     - Skara
+       - Move to git
+       - /Project-Skara/jdk/
+     - Loom, Panama, Value types, Valhalla, Metropolise      
