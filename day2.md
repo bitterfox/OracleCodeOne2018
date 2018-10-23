@@ -135,3 +135,59 @@
       - vectorlized machine code is generated based on the information
       - if vectorlization is not supported the default operation is used
       
+- Lang and tools
+  - Lang
+    - LVTI
+      - var
+      - var for lambda parameter is introduced in JDK 11
+      - style guideline
+      	- choose a variable name that provide useful incofmation
+	  - not only var context
+	- use var when initializer part provide enough information for reader
+	  - var reader = new BufferedReader
+	- Don't worry too much about programming to the interface with local variable
+	  - var list = new ArrayList<String>() where list is not List but ArrayList, but ok for local variable
+	- take care using var for literal
+	  - var bool = true; ok
+	  - var byteVal = 1; instead of byte byteVal = 1; NG
+	- take care when using with diamond or generic method
+	  - var list = Collection.emptyList()
+	- splitting complex streaming call chains
+    - Preview Language and VM Features [JEP 12]
+      - in JDK 11
+      - javac --enable-preview --source X
+      - java --enable-preview
+    - Switch expr
+      - preview in jdk 12
+      - no fall-through
+      - better slope strategy
+      - switch expr is poly type
+      - break with value
+        - case HOGE -> {hoge; break value;}
+      - need all case are covered
+    - raw string
+      - preview in jdk 12
+      - no \n or \uXXX
+      - one or more `
+        - `Hello double backtick `` world`
+        - `` Hello single ` ``
+        - ```hoge ` hoge `` hoge```
+        - no empty string by raw str(`` is error)
+        - "\\d\\d" -> `\d\d`
+        - "\"C:\\Program Files"->`"C:\Program Files`
+        - align, indent, lines, isBlank is introduced for raw string literal
+  - Tool
+    - Launch Single-File Source-Code Programs
+      - JDK 11
+      - java HelloWorld.java
+  - Javadoc
+    - Javadoc.Next in jdk9
+  - Deprecation
+    - javah
+      - removed in jdk10
+    - Nashorn
+    - Pack200
+  - Projects
+    - Amber
+    - Panama
+    - Valhalla
