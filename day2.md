@@ -106,3 +106,32 @@
     - Event streaming
       - currently need to start stop dump jfr
 
+- Vector API
+  - API  to use vectorlization of CPU
+  - Motivation
+    - Auto vectorlization is hard to do
+    - express data vectorlized code
+      - For Machine larning, etc
+  - FloatVector length, add, mul, etc
+  - Auto vectorlizer is on average better for simple case
+  - Byte,Short,FloatVector extend Vector
+    - Byte128Vector extends ByteVector
+  - example
+    - hash code
+      - 3~8% faster with vector api
+    - branch
+      - a > 0 ? a : a + 1
+      - Mask mask = av.greaterThan
+      	- vblendvps
+    - Sepia filter
+    - dot product
+      - over 5 time faster than scaler unrolled with vector rolled
+    - mandelbro
+      - 4~5 times faster than scaler
+  - implementation
+    - they want valut types to represent vector object effectively
+    - intrinsics on hotspot
+      - VectorIntrinsics
+      - vectorlized machine code is generated based on the information
+      - if vectorlization is not supported the default operation is used
+      
