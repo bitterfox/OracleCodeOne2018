@@ -90,4 +90,36 @@ hoge
       - No CallSite or target MH
     - Usecases
       - Con-capturing lambda
+
+- Vankat
+
+- Paul Sandoz
   
+- Keynote
+  - 405 sessions
+  - GitHub loves Java
+    - Project Skara
+    - hydro
+      - Resque(on redis)
+      - Webhooks(kestrel)
+      - Analytics(Kafka)
+      - datapipeline platform
+      - They develop by ruby first
+      - But they move it to Java
+      	- due to parallelism, performance, typing, ecosystem issue
+   - Java
+     - 6 monthly release
+     - Jigsaw
+     - jdeps
+     - support model
+       - Java is still free
+     - Projects
+       - Amber
+       	 - LVTI
+	 - Switch expr
+	 - record(value) class
+	 - Type inference by instanceof + pattern match
+       - Loom
+       	 - jextract
+       - Panama
+       - Valhalla
