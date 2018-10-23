@@ -43,3 +43,66 @@
   - Testing
     - testkitgen
       - a lot of tests in addition to openjdk tests
+
+- Flight recorder
+  - record events time period
+    - API to produce events
+  - Events
+    - JVM
+      - GC
+      - Runtime
+      - Compiler
+      - Configuration
+    - Java application
+      - Exceptions
+      - Allocations, old objects...
+    - OS
+  - Usecase
+    - Correctness
+      - Ensure added new code doesn't make GC bad based on the metrics of flight recorder
+    - Performance and scalability
+    - Trouble shooting
+  - After JDK11
+    - it will be open sourced, free to use
+    - as well as Mission control
+  - Demo
+    - -XX:StartFlightRecording:<bytes>
+    - -XX:StartFlightRecording:filename=<name>
+    - -XX:StartFlightRecording:settings=hoge.jfc
+      - xml format
+    - JFR.dump and etc is avaiable in jcm
+      - jcmd <pid> JFR.dump
+    - jfr command will be avaiable after jdk 12
+      - jfr print
+      	- --events
+      - jfr summary
+    - jdk.jfr.Event and Label for custom events
+    - visualize by jmc
+  - Own events
+    - Name, Label, Description, etc
+      - meta data is important
+    - Content Type
+      - Percentage, Frequency, Timespan, Timestamp, DataAmount
+    - periodic event
+    - ```
+    event = new Event
+    event.begin
+    hoge
+    event.end
+    event.hoge = ""
+    event.commit
+    ```
+    - Enable annotation
+      - enable on test env, and disable production env
+  - Read events
+    - RecordingFile.readAllEvents
+  - practical demo
+  - overhead for disabled event
+    - no overhead due to start, end and commit by Dead code elimination
+    - no overhead for new Event by escape analysis and scalar replacement
+    - field assignment also no overhead by dead code elimination
+    - completaly no overhead for disabled event
+  - Future work
+    - Event streaming
+      - currently need to start stop dump jfr
+
