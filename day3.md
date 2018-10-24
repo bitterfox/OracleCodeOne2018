@@ -1,0 +1,95 @@
+
+- ML AI BigData
+  - library and frameworks for ML, AI BigData
+    - many big data stack is written in java or for JVM
+    - Deeplearning4j, neuroph, Arbiter, ND4j(n-dimensional array related library, backend of Deeplearning4j)
+    - Apache OpenNLP, CoreNLP
+    - Smile, Weka: collection of some libraries
+  - Recent trends
+  - Innovations in java for new trend of those
+    - ZGC, Panama, Valhalla, etc
+  - Maintanablity
+    - Readability of Java
+  - Ultimate Performance
+    - Java is faster than python
+  - Density
+  - Valhalla
+    - better memory layout for value type
+    - to enhance efficiency of those computation
+  - massive data scaling
+    - need terabytes or petabytes heap
+    - ZGC
+      - smart load barrier
+  - Beyond moore's law
+    - need paralellism
+    - SIMD
+    - Panama (Mostly same as Paul's presentation)
+      - Vector API
+      - Implementation challenges of it
+  - Async & Continuoution
+    - Loom
+  - Visualization
+    - 2D and 3D
+    - JavaFX
+  - Profiling
+    - Flight Recorder
+  - Support
+    - Oracle Java SE Support Subscription
+
+- Serialization
+  - Why need serialization
+    - to communcate with other JVM or bring data to other jVM
+    - used everywhere around java platform
+    - it's useful but, ...
+  - serialized bytes format and the rules
+    - ser ver id
+    - can we change serialized bytes?
+      - if the changed class is completally not sub type of it will be exception, but...
+    - constructor is not called, but static initializer is called on deserialization
+      - this is useful for evil guys
+      - field is not initialized by constructor or something else
+      - if parent class doesn't implements Serializable, then constructor for parent class is called
+    - Java serialization is a great git to the bad guys
+  - serialization vulnerabilities
+    - a lot
+    - over 20
+    - lessons
+      - able to opt-in deserialization and take more control, but...
+      	- need to reduce exposure
+	  - able to opt-out deserialization, but...
+            - need to place boiler plate code on every classes
+            - it's anoy due to private final signature
+          - jdk expose
+          - write own ObjectInputStream
+	  - Modular
+	  - other alternative data format like JSON, or etc
+	    - stop native serialization
+	    - but JSON also has vulnerabilities
+	      - JSON cannot have type info
+    - examples
+      - Data manipulation
+      	- Data DOS
+	- can trigger OOM to give MA_INT to array length
+    - Gadget Chains
+      - Can call Runtime.exec() or something other bad API
+      - it's difficult to find such change?
+      - ysoserial
+  - Discovery
+    - Shodan
+   - Exploit
+      
+- Phaser, StampedLock, VarHandle
+  - Phaser
+    - Similar to CountDownLatch and CyclicBarrier, but more flexible
+  - StampedLock
+    - not reentrant
+    - faster way to ensure consistency and access across fields and classes which will be changed by other thread than synchronized, ReadWriteLock
+    - VarHandle
+      - replacement of Unsafe
+	
+- a
+  - a
+    - a
+      - a
+	
+    
