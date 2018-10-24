@@ -191,3 +191,12 @@
     - Amber
     - Panama
     - Valhalla
+
+- Goldman sacks
+
+- Keynote
+  - Oracle cloud
+  - OSS
+  - cloud native, CNCF
+  - Fn
+
