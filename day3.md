@@ -86,7 +86,50 @@
     - faster way to ensure consistency and access across fields and classes which will be changed by other thread than synchronized, ReadWriteLock
     - VarHandle
       - replacement of Unsafe
-	
+
+- ZGC
+  - What is it
+    - Low latency new GC in JDK11
+    - <= 10ms pause time
+      - don't increase with the heap size or # of object
+      - do increase with root set size
+      	- num size
+    - 15%
+    - Concurrent, Tracing, Compacting, Single generation, Region based, NUMA aware, Load barriers, Colored pointer
+  - Tuning
+    - Give enough heap size due to concurrent GC
+      - consider allocation rate and relocation speed
+      	- See "Allocated" in log
+    - ConcGCThreads
+    - logging
+      - Unified JVM Logging
+    - Future plans
+      - short
+       	- Conc class unload
+	- make it product feature
+      - Long
+      	- Generational
+  - ?
+    - how region is decided
+      - region size is vary
+      - small object goes smaller region, medium object goes medium region
+    - what risks on production
+      - class unloading is not implemented in JDK11
+      - no big risks
+    - fewer # of thread or # of thread stack will reduce pause time
+      - yes
+    - such kind of load barrer was expencive before, but it's now not expencive thanks by greate branch preditiction
+    - What will it happen on write path
+      - Nothing happen
+    - What will happen if it's get 100% usage during GC cycle? STW? FullGC
+      - No FullGC
+      - Allocating thread will be stopped until garbage is collected, it'll be done in n00 ms
+    - Can we configure to config when start GC cycle
+      - ヒューリスティックス
+      - Spike tolalent parameter
+
+- Config API
+
 - a
   - a
     - a
