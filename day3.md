@@ -130,6 +130,32 @@
 
 - Config API
 
+- GC
+  - A lot GC in JDK11
+  - Properties of those gc
+  - which gc is best
+    - depend on application
+    - take application
+    - mesure some statistics
+  - GC Memory overhead
+  - Easy of use vs tuning
+    - common more than 50 options
+      - Parallel(6) < ZGC(8) < G1(26) << CMS(72)
+  - Throughput vs pause time
+    - Generally
+      - less pause time -> less through put
+    - many write
+      - Parallel = ZGC > G1GC(throughput)
+      - ZGC doesn't have write barrier
+    - if read is many than write
+      - Parallel = G1GC > ZGC
+      - ZGC is not so good
+    - compare reference
+      - ZGC is not good than others
+  - pause time vs app latency
+    - GC pause < app latency
+
+
 - a
   - a
     - a
